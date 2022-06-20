@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-24 17:47:30
- * @LastEditTime: 2022-06-20 16:31:14
+ * @LastEditTime: 2022-06-20 16:47:48
  * @LastEditors: wsq 123123
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \express-jwt-study\router.js
@@ -13,8 +13,6 @@ const menuController = require("./controllers/MenuController");
 const notToken = ["/register", "/login"];
 const { verifyToken } = require("./authorization");
 const qs = require("qs");
-const createHandler = require('github-webhook-handler')
-let handler = createHandler({ path: '/webhook', secret: 'woshizz123' })
 module.exports = (app) => {
   // express 中间件
   app.use((req, res, next) => {
@@ -40,9 +38,6 @@ module.exports = (app) => {
       next();
     }
   });
-  handler.on('push', function (event) {
-    console.log('Received a push event for %s to %s', event.payload.repository.name, event.payload.ref)
-  })
   app.post("/register", UserController.register); // 用户注册
   app.post("/login", UserController.login); // 用户登录
   // 更新用户信息
