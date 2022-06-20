@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-24 17:47:30
- * @LastEditTime: 2022-06-20 16:17:27
+ * @LastEditTime: 2022-06-20 16:31:14
  * @LastEditors: wsq 123123
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \express-jwt-study\router.js
@@ -33,6 +33,7 @@ module.exports = (app) => {
       }
       // 解析token
       const data = verifyToken(token);
+      
       // 将id存入req中
       req.user = data;
       req.body = qs.parse(req.body);
