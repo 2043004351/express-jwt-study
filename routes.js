@@ -13,6 +13,7 @@ const menuController = require("./controllers/MenuController");
 const notToken = ["/register", "/login", "/webhook"];
 const { verifyToken } = require("./authorization");
 const crypto = require("crypto");
+
 const qs = require("qs");
 module.exports = (app) => {
   // express 中间件
