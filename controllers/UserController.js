@@ -11,7 +11,7 @@ const { user, permission: permissionDB } = require("../models");
 const { generateToken } = require("../authorization");
 module.exports = {
   register: async (req, res) => {
-    const { name, email, password, permission } = req.body;
+    const { name, email, password, permission = ['user'] } = req.body;
     try {
       const userInfo = await user.findOne({
         where: {
