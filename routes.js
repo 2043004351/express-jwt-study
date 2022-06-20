@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-24 17:47:30
- * @LastEditTime: 2022-06-20 19:17:16
+ * @LastEditTime: 2022-06-20 19:18:33
  * @LastEditors: wsq 123123
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \express-jwt-study\router.js
@@ -12,7 +12,7 @@ const menuController = require("./controllers/MenuController");
 // 引入express-jwt 解析token
 const notToken = ["/register", "/login", "/webhook"];
 const { verifyToken } = require("./authorization");
-const crypto = require("crypto-js");
+const crypto = require("crypto");
 const qs = require("qs");
 module.exports = (app) => {
   // express 中间件
