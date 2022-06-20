@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-24 17:47:30
- * @LastEditTime: 2022-06-20 17:07:59
+ * @LastEditTime: 2022-06-20 17:12:59
  * @LastEditors: wsq 123123
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \express-jwt-study\router.js
@@ -38,7 +38,7 @@ module.exports = (app) => {
       next();
     }
   });
-  app.post("/webhook", async (res, res) => {
+  app.post("/webhook", async (req, res) => {
     console.log(req.body);
     res.send("ok");
   })
