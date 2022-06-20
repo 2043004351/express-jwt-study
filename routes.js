@@ -10,7 +10,7 @@ const UserController = require("./controllers/UserController");
 const PermissionController = require("./controllers/PermissionController");
 const menuController = require("./controllers/MenuController");
 // 引入express-jwt 解析token
-const notToken = ["/register", "/login"];
+const notToken = ["/register", "/login", "/webhook"];
 const { verifyToken } = require("./authorization");
 const qs = require("qs");
 module.exports = (app) => {
