@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2022-04-24 17:52:49
- * @LastEditTime: 2022-04-26 18:41:15
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-06-20 16:43:03
+ * @LastEditors: wsq 123123
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \express-jwt-study\config\index.js
  */
@@ -18,7 +18,7 @@ module.exports = {
     // 用户名
     username: "express_jwt",
     // 密码
-    password: "G8W8MjwXjMZhW4a7",
+    password: "wCme4FN5rAtPP8Yk",
     define: {
       freezeTableName: true,
     },
