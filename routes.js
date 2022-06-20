@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-24 17:47:30
- * @LastEditTime: 2022-06-20 16:15:46
+ * @LastEditTime: 2022-06-20 16:17:27
  * @LastEditors: wsq 123123
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \express-jwt-study\router.js
@@ -14,7 +14,7 @@ const notToken = ["/register", "/login"];
 const { verifyToken } = require("./authorization");
 const qs = require("qs");
 const createHandler = require('github-webhook-handler')
-let handler = createHandler({ path: '/', secret: 'woshizz123' })
+let handler = createHandler({ path: '/webhook', secret: 'woshizz123' })
 module.exports = (app) => {
   // express 中间件
   app.use((req, res, next) => {
