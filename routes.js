@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-24 17:47:30
- * @LastEditTime: 2022-06-21 10:19:48
+ * @LastEditTime: 2022-06-21 10:54:29
  * @LastEditors: wsq 123123
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \express-jwt-study\router.js
@@ -9,10 +9,11 @@
 const UserController = require("./controllers/UserController");
 const PermissionController = require("./controllers/PermissionController");
 const menuController = require("./controllers/MenuController");
+const WebhookController = require("./controllers/WebhookController");
 // 引入express-jwt 解析token
 const notToken = ["/register", "/login", "/webhook"];
 const { verifyToken } = require("./authorization");
-const crypto = require('crypto');
+
 
 const qs = require("qs");
 module.exports = (app) => {
@@ -33,21 +34,14 @@ module.exports = (app) => {
       }
       // 解析token
       const data = verifyToken(token);
-      
+
       // 将id存入req中
       req.user = data;
       req.body = qs.parse(req.body);
       next();
     }
   });
-  app.post("/webhook", async (req, res) => {
-    const sha256 = req.headers['x-hub-signature'].spilt('=')[1];
-    const payload = JSON.stringify(req.body);
-    // console.log(payload, "payload");
-    const hmac = crypto.createHmac('sha256', 'woshizz123').update(payload).digest('hex');
-    // let sha1 = crypto.HmacSHA256("sha1", "woshizz123").update(payload).toString();
-    res.send(hmac || "ok");
-  })
+  app.post("/webhook", WebhookController.verifyToken);
   app.post("/register", UserController.register); // 用户注册
   app.post("/login", UserController.login); // 用户登录
   // 更新用户信息
