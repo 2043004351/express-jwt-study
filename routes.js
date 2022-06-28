@@ -44,7 +44,7 @@ module.exports = (app) => {
   app.post("/webhook", webhookController.verifyToken);
   app.post("/register", UserController.register); // 用户注册
   app.post("/login", UserController.login); // 用户登录
-  // 更新用户信息1
+  // 更新用户信息
   app.put("/user/update", UserController.update);
   // 获取用户信息
   app.get("/user/info", UserController.getUserInfo);
