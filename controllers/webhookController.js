@@ -2,7 +2,7 @@
  * @Author: wsq 123123
  * @Date: 2022-06-21 10:24:58
  * @LastEditors: wsq 123123
- * @LastEditTime: 2022-06-28 11:23:24
+ * @LastEditTime: 2022-06-28 11:27:40
  * @FilePath: \express-jwt-study\controllers\webhookController.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -34,12 +34,12 @@ module.exports = {
       if (ref.indexOf("develop") > -1) {
         // 首先设置deploy.sh权限
         // const chmod = shell.execSync(`chmod +x ${resolve(__dirname, "../scripts/deploy.sh")}`);
-        shell.execFile(`${resolve(__dirname, "/scripts/deploy.sh")}`, (error, stdout, stderr) => {
+        shell.execFile(`${resolve(__dirname, "../scripts/deploy.sh")}`, (error, stdout, stderr) => {
           if(error){
             res.send({
               code: 500,
               msg: error,
-              dir: resolve(__dirname, "/scripts/deploy.sh")
+              dir: resolve(__dirname, "../scripts/deploy.sh")
             })
           }else{
             res.send({
