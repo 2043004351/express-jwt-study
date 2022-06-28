@@ -9,7 +9,7 @@
 const UserController = require("./controllers/UserController");
 const PermissionController = require("./controllers/PermissionController");
 const menuController = require("./controllers/MenuController");
-const WebhookController = require("./controllers/WebhookController");
+const webhookController = require("./controllers/WebhookController");
 // 引入express-jwt 解析token
 const notToken = ["/register", "/login", "/webhook"];
 const { verifyToken } = require("./authorization");
@@ -41,7 +41,7 @@ module.exports = (app) => {
       next();
     }
   });
-  app.post("/webhook", WebhookController.verifyToken);
+  app.post("/webhook", webhookController.verifyToken);
   app.post("/register", UserController.register); // 用户注册
   app.post("/login", UserController.login); // 用户登录
   // 更新用户信息
