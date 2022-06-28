@@ -33,7 +33,7 @@ module.exports = {
       const { ref } = req.body;
       if (ref.indexOf("develop") > -1) {
         // 首先设置deploy.sh权限
-        const chmod = shell.execSync(`chmod +x ${resolve(__dirname, "../deploy.sh")}`);
+        const chmod = shell.execSync(`chmod +x ${resolve(__dirname, "../scripts/deploy.sh")}`);
         const data = shell.exec(`sh ${resolve(__dirname, "../scripts/deploy.sh")}`);
         res.send({
           code: 200,
