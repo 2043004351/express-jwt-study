@@ -9,6 +9,22 @@
 const crypto = require("crypto");
 const shell = require("child_process");
 const { resolve } = require("path");
+
+// 判断token是否存在
+const isTokenExist = async (sha256, body) => {
+  if (sha256) {
+    return false;
+  }
+  const hmacSha256 = crypto
+    .createHmac("sha256", "woshizz123")
+    .update(body)
+    .digest("hex");
+  if (sha256 != hmacSha256) {
+    return false;
+  }
+  return true;
+};
+
 module.exports = {
   // 验证token
   verifyToken: async (req, res) => {
@@ -21,25 +37,11 @@ module.exports = {
         shell.exec(`sh ${resolve(__dirname, "../scripts/deploy.sh")}`);
         res.send("success");
       }
-      res.send("success")
+      res.send("success");
     } else {
       res.status(401).send({
         message: "请先登录",
       });
     }
-  },
-  // 判断token是否存在
-  isTokenExist: async (sha256, body) => {
-    if (sha256) {
-      return false;
-    }
-    const hmacSha256 = crypto
-      .createHmac("sha256", "woshizz123")
-      .update(body)
-      .digest("hex");
-    if (sha256 != hmacSha256) {
-      return false;
-    }
-    return true;
-  },
+  }
 };
