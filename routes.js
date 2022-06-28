@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-24 17:47:30
- * @LastEditTime: 2022-06-28 11:22:35
+ * @LastEditTime: 2022-06-28 11:25:06
  * @LastEditors: wsq 123123
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \express-jwt-study\router.js
@@ -44,7 +44,7 @@ module.exports = (app) => {
   app.post("/webhook", webhookController.verifyToken);
   app.post("/register", UserController.register); // 用户注册
   app.post("/login", UserController.login); // 用户登录
-  // 更新用户信息1111
+  // 更新用户信息
   app.put("/user/update", UserController.update);
   // 获取用户信息
   app.get("/user/info", UserController.getUserInfo);
